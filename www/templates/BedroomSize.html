@@ -1,0 +1,24 @@
+<ion-view title="Bedroom Size">
+    <ion-content padding="'true'" class="has-header">
+        <form class="list">
+            <div>
+                <p>You can size the bedroom using the height and width range below. Don't worry if it's not the perfect size of the room, later you can add blocks to make the dimensions more like your room.</p>
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Width</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Height</span>
+                <input type="number" placeholder="">
+            </label>
+        </form>
+    </ion-content>
+        <div class="tabs tabs-dark tabs-icon-top">
+            <a class="tab-item">
+                <i class="icon ion-arrow-right-a" ui-sref="AddDoors"></i>
+                NEXT
+                <ion-nav-view name="AddDoors"></ion-nav-view>
+            </a>
+        </div>
+</ion-view>
