@@ -35,15 +35,61 @@ $stateProvider
   })  
   $urlRouterProvider.otherwise('/Bedroom-Size');
 })  
+.controller('BedroomSizeCtrl', function($scope, $state) {
+    $scope.addDoors = function(user) {
+    console.log('addDoors');
+    $state.go('AddDoors');
+    };
+  })  
+.controller('AddDoorsCtrl', function($scope, $state, $ionicHistory ) {
+    $scope.goBack = function() {
+    $ionicHistory.goBack();
+    };
+/*    $scope.bedroomSize = function(user) {
+    console.log('BedroomSize');
+    $state.go('BedroomSize');
+    };*/
+    $scope.addWindows = function(user) {
+    console.log('addWindows');
+    $state.go('AddWindows');
+    };
 
-.controller('BedroomSizeCtrl', function($scope) {
-})
-.controller('AddDoorsCtrl', function($scope) {
-})
-.controller('AddWindowsCtrl', function($scope) {
-})
-.controller('AddFurnitureCtrl', function($scope) {
-})
-.controller('LayoutCtrl', function($scope) {
-})
-
+  }) 
+.controller('AddWindowsCtrl', function($scope, $state, $ionicHistory ) {
+    $scope.goBack = function() {
+    $ionicHistory.goBack();
+    };
+/*    $scope.addDoors = function(user) {
+    console.log('addDoors');
+    $state.go('AddDoors');
+    };*/
+    $scope.addFurniture = function(user) {
+    console.log('AddFurniture');
+    $state.go('AddFurniture');
+    };
+  }) 
+.controller('AddFurnitureCtrl', function($scope, $state, $ionicHistory ) {
+    $scope.goBack = function() {
+    $ionicHistory.goBack();
+    };
+/*    $scope.addWindows = function(user) {
+    console.log('addWindows');
+    $state.go('AddWindows');
+    };*/
+    $scope.layout = function(user) {
+    console.log('Layout');
+    $state.go('Layout');
+    };
+  }) 
+/*.controller('LayoutCtrl', function($scope, $state) {
+    $scope.addFurniture = function(user) {
+    console.log('AddFurniture');
+    $state.go('AddFurniture');
+    };
+  }) 
+*/
+  .controller('LayoutCtrl', function($scope, $ionicHistory ) {
+    $scope.goBack = function() {
+    $ionicHistory.goBack();
+    };
+  })
