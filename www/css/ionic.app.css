@@ -7708,3 +7708,17 @@ a.button {
 	min-height: 100%;
 	width: 100%;
 } */
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto; }
+
+.slider {
+  width: 98%;
+  height: 100%; }
+
+.slider-slide {
+  padding-bottom: 80px;
+  color: #000;
+  background-color: #fff;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300; }

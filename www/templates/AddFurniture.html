@@ -1,29 +1,44 @@
 <ion-view title="Add Furniture">
     <ion-content padding="'true'" class="has-header">
-        <div>
-            <p>Click on the top left side menu to add furniture into the bedroom.</p>
-        </div>
-        <form class="list"></form>
         <form class="list">
-            <label class="item item-input">
-                <span class="input-label">Width</span>
-                <input type="number" placeholder="">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Height</span>
-                <input type="number" placeholder="">
-            </label>
+            <div>
+                <p>Input the width, length and name of your furniture. Add to list more furniture or minus to remove furniture.</p>
+            </div>
+            <div class="row">
+                <div class="col-40">
+                    <label class="item item-input">
+                        <span class="input-label">Width</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+                <div class="col-40 col-offset-10">
+                    <label class="item item-input">
+                        <span class="input-label">Height</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+            </div>
             <label class="item item-input">
                 <span class="input-label">Name</span>
                 <input type="text" placeholder="">
             </label>
-        </form>
-        <ion-list></ion-list>
-        <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-        <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
-        <ion-list>
-            <ion-item menu-close="">Item</ion-item>
-        </ion-list>
+            <label class="item item-input">
+                <span class="input-label">Name of Furniture</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Name of Furniture</span>
+                <input type="text" placeholder="">
+            </label>
+            <div class="row row-bottom">
+                <div class="col-10 col-offset-75">
+                    <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
+                </div>
+                <div class="col-10">
+                    <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
+                </div>
+            </div>           
+        </form>        
     </ion-content>
         <div class="tabs tabs-dark tabs-icon-top">
             <a class="tab-item">

@@ -2,16 +2,32 @@
     <ion-content padding="'true'" class="has-header">
         <form class="list">
             <div>
-                <p>You can size the bedroom using the height and width range below. Don't worry if it's not the perfect size of the room, later you can add blocks to make the dimensions more like your room.</p>
+                <p>You can input the size of your room by providing the width and length below. All measurements will be taken in by inches so please make sure to provide measurements in inches.</p>
             </div>
-            <label class="item item-input">
-                <span class="input-label">Width</span>
-                <input type="number" placeholder="">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Height</span>
-                <input type="number" placeholder="">
-            </label>
+            <div class="row">
+                <div class="col-45">
+                    <label class="item item-input">
+                        <span class="input-label">Width</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+                <div class="col-45 col-offset-10">
+                    <label class="item item-input">
+                        <span class="input-label">Length</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-offset-25">
+                    <p>Room shows up below.</p> 
+                </div>
+            </div> 
+            <div class="row row-bottom">
+                <div class="col">
+                    <img src="http://placehold.it/280x150">
+                </div> 
+            </div> 
         </form>
     </ion-content>
         <div class="tabs tabs-dark tabs-icon-top">

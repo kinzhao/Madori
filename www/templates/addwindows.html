@@ -2,21 +2,41 @@
     <ion-content padding="'true'" class="has-header">
         <form class="list">
             <div>
-                <p>Add Windows into the bedroom by dragging down the window into the bedroom. You can size the window using the height and width range below.</p>
+                <p>You can size the door by providing the inputs for width and length and select where to position them. Add to position more windows or minus to remove window.</p>
             </div>
+            <div class="row">
+                <div class="col-45">
+                    <label class="item item-input">
+                        <span class="input-label">Width</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+                <div class="col-45 col-offset-10">
+                    <label class="item item-input">
+                        <span class="input-label">Length</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+            </div>
+            <div class="row row-center">
+                <div class="col col-offset-25">
+                    <p>Room shows up below.</p> 
+                </div>
+            </div> 
+            <div class="row row-bottom">
+                <div class="col">
+                    <img src="http://placehold.it/280x150">
+                </div> 
+            </div> 
+            <div class="row row-bottom">
+                <div class="col-10 col-offset-75">
+                    <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
+                </div>
+                <div class="col-10">
+                    <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
+                </div>
+            </div>           
         </form>
-        <form class="list">
-            <label class="item item-input">
-                <span class="input-label">Width</span>
-                <input type="text" placeholder="">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Height</span>
-                <input type="text" placeholder="">
-            </label>
-        </form>
-        <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-        <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
     </ion-content>
         <div class="tabs tabs-dark tabs-icon-top">
             <a class="tab-item">
