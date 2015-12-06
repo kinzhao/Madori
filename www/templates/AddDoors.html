@@ -1,51 +1,51 @@
 <ion-view title="Add Doors">
-    <ion-content padding="'true'" class="has-header">
-        <form class="list">
-            <div>
-                <p>You can size the door by providing the inputs for width and length and select where to position them. Reason we need to know the width and length of the door is for a more precise measurement when door is fully opened. Add to position more doors or minus to remove door.</p>
-            </div>
-            <div class="row">
-                <div class="col-45">
-                    <label class="item item-input">
-                        <span class="input-label">Width</span>
-                        <input type="tel" placeholder="">
-                    </label>
-                </div>
-                <div class="col-45 col-offset-10">
-                    <label class="item item-input">
-                        <span class="input-label">Length</span>
-                        <input type="tel" placeholder="">
-                    </label>
-                </div>
-            </div>
-             <div class="row row-center">
-                <div class="col col-offset-25">
-                    <p>Room shows up below.</p> 
-                </div>
-            </div> 
-            <div class="row row-bottom">
-                <div class="col">
-                    <img src="http://placehold.it/280x150">
-                </div> 
-            </div> 
-            <div class="row row-bottom">
-                <div class="col-10 col-offset-75">
-                    <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-                </div>
-                <div class="col-10">
-                    <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
-                </div>
-            </div>           
-        </form>
-    </ion-content>
-        <div class="tabs tabs-dark tabs-icon-top">
-            <a class="tab-item">
-                <i class="icon ion-arrow-left-a" ng-click="goBack()"></i><!--ng-click="bedroomSize(user)"-->
-                BACK
-            </a>
-            <a class="tab-item">
-                <i class="icon ion-arrow-right-a" ng-click="addWindows(user)"></i>
-                NEXT
-            </a>
+  <ion-content padding="'true'" class="has-header">
+    <form class="list">
+      <div>
+        <p>You can size the door by providing the inputs for width and length and select where to position them. Reason we need to know the width and length of the door is for a more precise measurement when door is fully opened. Add to position more doors or minus to remove door.</p>
+      </div>
+      <div class="row">
+        <div class="col-35">
+          <label class="item item-input">
+            <span class="input-label">Width</span>
+            <input type="tel" ng-model="door.width" placeholder="in feet" ng-change="addDoor()">
+          </label>
         </div>
+
+        <div class="col-50 col-offset-10">
+          <label class="item item-input item-select">
+            <span class="input-label">Type</span>
+            <select id="doortypelist" ng-model="item" ng-change="addDoor()">
+              <option>Single</option>
+              <option selected>Double</option>
+              <option>Sliding</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </form>
+
+    <div class="room-container" style="width:"{{roomwidth}}";height:"{{roomheight}}"" >
+      <canvas width="{{roomwidth}}" height="{{roomheight}}" style="border:5px solid black;"> </canvas>
+    </div>
+
+    <div class="row row-bottom">
+      <div class="col-10 col-offset-75">
+        <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
+      </div>
+      <div class="col-10">
+        <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
+      </div>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-dark tabs-icon-top">
+    <a class="tab-item">
+      <i class="icon ion-arrow-left-a" ng-click="goBack()"></i><!--ng-click="bedroomSize(user)"-->
+      BACK
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-arrow-right-a" ng-click="addWindows(user)"></i>
+      NEXT
+    </a>
+  </div>
 </ion-view>
