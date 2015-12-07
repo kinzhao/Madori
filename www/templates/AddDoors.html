@@ -1,21 +1,36 @@
-<ion-view title="Add Doors">
-  <ion-content padding="'true'" class="has-header">
-    <form class="list">
+<ion-view>
+<ion-nav-bar class="bar-dark">
+<ion-nav-title>
+      Doors
+    </ion-nav-title>
+</ion-nav-bar>
+  <ion-content padding="'true'" class="has-header" scroll="false">
+    <form name="doorForm" class="list">
       <div>
-        <p>You can size the door by providing the inputs for width and length and select where to position them. Reason we need to know the width and length of the door is for a more precise measurement when door is fully opened. Add to position more doors or minus to remove door.</p>
+        <p>You can size the door by providing the inputs for width and length and select where to position them.</p>
       </div>
       <div class="row">
         <div class="col-35">
           <label class="item item-input">
             <span class="input-label">Width</span>
-            <input type="tel" ng-model="door.width" placeholder="in feet" ng-change="addDoor()">
+            <input
+            type="tel"
+            ng-model="door.width"
+            placeholder="in feet"
+            ng-change="addD()"
+            required
+            >
           </label>
         </div>
 
         <div class="col-50 col-offset-10">
           <label class="item item-input item-select">
             <span class="input-label">Type</span>
-            <select id="doortypelist" ng-model="item" ng-change="addDoor()">
+            <select
+            id="doortypelist"
+            ng-model="item"
+            ng-change="addD()"
+            required>
               <option>Single</option>
               <option selected>Double</option>
               <option>Sliding</option>
@@ -23,20 +38,19 @@
           </label>
         </div>
       </div>
+      <button class="button button-full button-dark" ng-disabled="!doorForm.$valid" ng-click="addDoor()">
+      Add Door
+      </button>
     </form>
 
-    <div class="room-container" style="width:"{{roomwidth}}";height:"{{roomheight}}"" >
-      <canvas width="{{roomwidth}}" height="{{roomheight}}" style="border:5px solid black;"> </canvas>
+    <div class="room-container">
+      <div  id="roomholder" style="border:5px solid black;width:90vw;height:90vw;margin: 0 auto;">
+            <div class="drag draggable">
+              <p>Door</p>
+            </div>
+      </div>
     </div>
 
-    <div class="row row-bottom">
-      <div class="col-10 col-offset-75">
-        <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-      </div>
-      <div class="col-10">
-        <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
-      </div>
-    </div>
   </ion-content>
   <div class="tabs tabs-dark tabs-icon-top">
     <a class="tab-item">
