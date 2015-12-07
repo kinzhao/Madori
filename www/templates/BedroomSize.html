@@ -2,16 +2,16 @@
   <ion-content padding="'true'" class="has-header">
     <form name="roomform" class="list">
       <div>
-        <p>You can input the size of your room by providing the width and length below. All measurements will be taken in by inches so please make sure to provide measurements in inches.</p>
+        <p>You can input the size of your room by providing the width and length below. All measurements will be taken in by feet, please make sure to provide measurements in feet.</p>
       </div>
       <div class="row">
-        <div class="col-45">
+        <div class="col col-45">
           <label class="item item-input">
             <span class="input-label">Width</span>
             <input
             name="width"
             type="tel"
-            placeholder="in feets"
+            placeholder="feet"
             ng-model="room.width"
             ng-change="drawRoom()"
             required
@@ -26,11 +26,11 @@
         Width is required
       </div>
       </div>
-    <div class="col-45 col-offset-10">
+    <div class="col col-30">
       <label class="item item-input">
         <span class="input-label">Length</span>
         <input type="tel"
-        placeholder="in feets"
+        placeholder="feet"
         ng-model="room.height"
         ng-change="drawRoom()">
       </label>
