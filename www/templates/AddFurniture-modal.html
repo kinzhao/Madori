@@ -1,0 +1,57 @@
+  <ion-modal-view id="addfurniture-modal-wrapper">
+  	<header class="bar bar-header bar-dark">
+		<div class="button button-clear icon ion-close" ng-click="modal.hide()"></div>
+		<h1 class="title"></h1>
+		<div class="button button-clear icon ion-android-add" ng-click=""></div>
+	</header>
+    <ion-content has-header="true" padding="true">
+    	<form class="list">
+            <div>
+                <p>Input the width, length and name of your furniture. Add to list more furniture or minus to remove furniture.</p>
+            </div>
+            <div class="row" id="item-margin-control">
+				<div class="col">
+				  <label class="item item-input item-select">
+				    <span class="input-label">Type</span>
+				    <select id="furnituretypelist" ng-model="item" ng-change="addFurniture()">
+				      <option selected>Bed</option>
+				      <option>Chest</option>
+				      <option>Wardrobe</option>
+				      <option>Other</option>
+				    </select>
+				  </label>
+				</div>
+			</div>
+			<div class="row" id="item-margin-control">
+				<div class="col">
+					<label class="item item-input">
+                        <span class="input-label">Name of Furniture</span>
+                        <input type="text" placeholder="">
+                    </label>
+				</div>	
+			</div>
+            <div class="row" id="item-margin-control">
+                <div class="col col-30">
+                    <label class="item item-input">
+                        <span class="input-label">Width</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+                <div class="col col-30" id="item-margin-control-for-length-item">
+                    <label class="item item-input">
+                        <span class="input-label">Length</span>
+                        <input type="tel" placeholder="">
+                    </label>
+                </div>
+            </div>
+            <div class="row row-bottom">
+                <div class="col text-center">
+                    <button class="button button-block button-small button-outline button-assertive">Reset</button>
+                </div>
+                <div class="col text-center">
+                    <button class="button button-block button-small button-outline button-balanced">Add</button>
+                </div>
+            </div>           
+        </form>        
+    </ion-content>
+  </ion-modal-view>
