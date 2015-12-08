@@ -1,26 +1,35 @@
 <ion-view title="Add Doors" id="Add-Doors-wrapper">
   <ion-content padding="'true'" class="has-header">
-    <form class="list">
+    <form name="doorform" class="list">
       <div>
         <p>You can size the door by providing the inputs for width and length and select where to position them. Add to position more doors or minus to remove door.</p>
       </div>
       <div class="row">
-        <div class="col-45">
+        <div class="col col-45">
           <label class="item item-input" id="margin-item">
             <span class="input-label">Width</span>
-            <input type="tel" ng-model="door.width" placeholder="feet" ng-change="addDoor()">
+            <input
+            name="width" 
+            type="tel" 
+            ng-model="door.width" 
+            placeholder="feet" 
+            ng-change="addDoor()"
+            required
+            ng-pattern="/^\d*\.?\d*$/">
           </label>
         </div>
 
-<!--         <div class="col col-30">
-            <select class="ion-input-select">
-              <option>Type</option>
-              <option>Single</option>
+        <div class="col col-55">
+            <select 
+            name="select"
+            class="ion-input-select" 
+            id="margin-item">
+              <option selected>Single</option>
               <option>Double</option>
               <option>Sliding</option>
             </select>
-        </div>   -->
-        <div class="col-55">
+        </div>  
+<!--         <div class="col-55">
           <label class="item item-input item-select" id="margin-item">
             <span class="input-label">Type</span>
             <select id="doortypelist" ng-model="item" ng-change="addDoor()">
@@ -29,8 +38,17 @@
               <option>Sliding</option>
             </select>
           </label>
-        </div>
+        </div> -->
       </div>
+      <div class="row">
+        <div class="col form-error assertive text-center"
+        ng-show="doorform.width.$error.pattern">
+          Invalid Input
+        </div>
+        <div class="col form-error assertive text-center" ng-show="doorform.width.$error.required && doorform.width.$error.pattern">
+          Width is required
+        </div>
+      </div>  
     </form>
     <div class="room-container" style="width:"{{roomwidth}}";height:"{{roomheight}}"" >
       <canvas width="{{roomwidth}}" height="{{roomheight}}" style="border:5px solid black;"> </canvas>

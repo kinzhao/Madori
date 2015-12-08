@@ -1,6 +1,6 @@
 <ion-view title="Add Windows">
     <ion-content padding="'true'" class="has-header">
-        <form class="list">
+        <form name="windowform" class="list">
             <div>
                 <p>You can size the door by providing the inputs for width and length and select where to position them. Add to position more windows or minus to remove window.</p>
             </div>
@@ -8,14 +8,34 @@
                 <div class="col col-30">
                     <label class="item item-input">
                         <span class="input-label">Width</span>
-                        <input type="tel" placeholder="feet">
+                        <input
+                        name="width"
+                        type="tel"
+                        placeholder="feet"
+                        ng-model="window.width"
+                        required
+                        ng-pattern="/^\d*\.?\d*$/" >
                     </label>
                 </div>
                 <div class="col col-30">
                     <label class="item item-input">
                         <span class="input-label">Length</span>
-                        <input type="tel" placeholder="feet">
+                        <input type="tel"
+                        name="length"
+                        placeholder="feet"
+                        ng-model="window.length"
+                        required
+                        ng-pattern="/^\d*\.?\d*$/">
                     </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center form-error assertive"
+                ng-show="windowform.width.$error.pattern || windowform.length.$error.pattern">
+                  Invalid Input
+                </div>
+                <div class="col text-center form-error assertive" ng-show="windowform.width.$error.required && windowform.width.$error.pattern || windowform.length.$error.required && windowform.length.$error.pattern">
+                  Width is required
                 </div>
             </div>
             <div class="row row-center">
