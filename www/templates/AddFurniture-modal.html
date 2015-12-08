@@ -1,8 +1,7 @@
   <ion-modal-view id="addfurniture-modal-wrapper">
-    <header class="bar bar-header bar-dark">
-		<div class="button button-clear icon ion-close" ng-click="modal.hide()"></div>
-		<h1 class="title"></h1>
-		<div class="button button-clear icon ion-android-add" ng-click=""></div>
+    <header class="bar bar-header bar-dark">s
+		<h1 class="title">Add Furniture</h1>
+        <button class="button button-clear icon ion-android-close" ng-click="modal.hide()"> Cancel </button>
 	</header>
     <ion-content padding="'true'" class="has-header">
     	<form name="furnitureform" class="list">
@@ -13,7 +12,9 @@
 				<div class="col">
 				  <label class="item item-input item-select">
 				    <span class="input-label">Type</span>
-				    <select id="furnituretypelist" ng-model="item" ng-change="addFurniture()">
+				    <select id="furnituretypelist" 
+                            ng-model="item" 
+                            ng-change="typeChange()">
 				      <option selected>Bed</option>
 				      <option>Chest</option>
 				      <option>Wardrobe</option>
@@ -22,23 +23,26 @@
 				  </label>
 				</div>
 			</div>
-			<div class="row" id="item-margin-control">
+			<div class="row" id="item-margin-control" ng-if="furtype=='Other'">
 				<div class="col">
 					<label class="item item-input">
                         <span class="input-label">Name of Furniture</span>
-                        <input type="text" placeholder="">
+                        <input type="text" 
+                               placeholder="eg. Chair, Table, Desk"
+                               ng-model="f.name">
                     </label>
 				</div>	
 			</div>
-            <div class="row" id="item-margin-control">
+            <div class="row"
+                 ng-if="furtype=='Other' || furtype=='Bed' || furtype=='Chest' || furtype=='Wardrobe'">
                 <div class="col col-30">
                     <label class="item item-input">
                         <span class="input-label">Width</span>
                         <input
                         name="width"
+                        ng-model="f.width"
                         type="tel"
                         placeholder="feet"
-                        ng-model="furniture.width"
                         required
                         ng-pattern="/^\d*\.?\d*$/" >
                     </label>
@@ -46,15 +50,31 @@
                 <div class="col col-30" id="item-margin-control-for-length-item">
                     <label class="item item-input">
                         <span class="input-label">Length</span>
-                        <input type="tel"
+                        <input
+                        type="tel"
                         name="length"
+                        ng-model="f.len"
                         placeholder="feet"
-                        ng-model="furniture.length"
                         required
                         ng-pattern="/^\d*\.?\d*$/">
                     </label>
                 </div>
             </div>
+            <div class="row" ng-if="furtype=='Wardrobe' || furtype=='Other'">
+            <div class="col">
+             <label class="item item-input item-select" id="margin-item">
+                 <span class="input-label">Type of Door</span>
+            <select 
+            name="select"
+            class="ion-input-select" 
+            id="war-door-type">
+              <option selected>Single</option>
+              <option>Double</option>
+              <option>Sliding</option>
+             <option>None</option>
+            </select>
+        </div>  
+      </div>
             <div class="row">
                 <div class="col text-center form-error assertive text-center"
                 ng-show="furnitureform.width.$error.pattern || furnitureform.length.$error.pattern">
@@ -69,7 +89,7 @@
                     <button class="button button-block button-small button-outline button-assertive">Reset</button>
                 </div>
                 <div class="col text-center">
-                    <button class="button button-block button-small button-outline button-balanced">Add</button>
+                    <button class="button button-block button-small button-outline button-balanced" ng-click="addFurniture()">Add</button>
                 </div>
             </div>           
         </form>        

@@ -1,23 +1,26 @@
     angular.module('ionicApp')
 
-    .controller('AddWindowsCtrl', function($scope, $state, $ionicHistory,$rootScope ) {
+    .controller('AddWindowsCtrl', 
+    function($scope, $state, $ionicHistory,$rootScope ) {
+        
         $scope.goBack = function() {
         $ionicHistory.goBack();
         };
-    /*    $scope.addDoors = function(user) {
-        console.log('addDoors');
-        $state.go('AddDoors');
-        };*/
-        $scope.addFurniture = function(user) {
-        console.log('AddFurniture',$rootScope.value);
+        
+        $scope.addFurniture = function() {
+            var elements = document.querySelectorAll('.dragg');
+            for ( var i=0, len = elements.length; i < len; i++ ) {
+            var element = elements[i];
+            var xl = element.offsetLeft;
+            var yt = element.offsetTop;
+            var w = element.clientWidth;
+            var h = element.clientHeight;
+            $rootScope.box.push({type:"window", x:xl, y:yt, width:w, height:h});
+        }    
+        console.log('AddFurniture',$rootScope.box);
         $state.go('AddFurniture');
         };
 
-        $scope.callMe = function(ev){
-            console.log(ev);
-            winds.style.top = ev.gesture.deltaY;
-            winds.style.left = ev.gesture.deltaX;
-        }
         var winds;
         $rootScope.window = [{width:0}];
         var room,door;
@@ -39,19 +42,18 @@
             door.style.zIndex = zval;
             door.style.float = "left";
             room.appendChild(door);
-        }
-        });
+        }});
         
         $scope.addWindow = function()
         {
         console.log("Inside");
         var window = document.createElement("canvas");
-        window.style.width = (($rootScope.window.width*10)*2)+"px";
+        window.style.width = ($rootScope.window.width *10* $rootScope.scale)+"px";
         window.classList.add('dragg');
-        window.style.height = "10px";  
+        window.style.height = $rootScope.gridh/2+"px";  
         window.style.backgroundColor = "red";
+        window.style.position = "absolute";
         room.appendChild(window);
-            
             
             // get all draggie elements
         var draggableElems = document.querySelectorAll('.dragg');

@@ -9167,3 +9167,12 @@ select::-ms-expand {
 
 .text-center {
   text-align: center; }
+
+.rhold{
+    -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; 
+ border: 5px solid black;
+    position:relative;
+    margin: 0 auto;
+}

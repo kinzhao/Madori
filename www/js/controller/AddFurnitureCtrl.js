@@ -9,6 +9,7 @@ angular.module('ionicApp')
     });
     $scope.openModal = function() {
     $scope.modal.show();
+    $scope.f = [{width:0,len:0,name:""}];   
     };
     $scope.closeModal = function() {
     $scope.modal.hide();
@@ -29,12 +30,21 @@ angular.module('ionicApp')
     $scope.goBack = function() {
     $ionicHistory.goBack();
     };
-/*    $scope.addWindows = function(user) {
-    console.log('addWindows');
-    $state.go('AddWindows');
-    };*/
-    $scope.layout = function(user) {
+
+    $scope.layout = function() {
     console.log('Layout',$rootScope.value);
     $state.go('Layout');
     };
+        
+    $scope.typeChange = function(){
+        $scope.f.name="";
+        $scope.furtype = document.getElementById("furnituretypelist").value;
+        console.log($scope.furtype);
+    }
+    
+    $scope.addFurniture = function(){
+        console.log(($scope.f.name || $scope.furtype),
+                    $scope.f.width,
+                    $scope.f.len);
+    }
   })

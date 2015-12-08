@@ -1,86 +1,50 @@
-<<<<<<< HEAD
 <ion-view>
-    <ion-nav-bar class="bar-dark">
-        <ion-nav-title>
-            Add Windows
-        </ion-nav-title>
-    </ion-nav-bar>
-    <ion-content padding="'true'" scroll="false" class="has-header">
+<ion-nav-bar class="bar-dark">
+<ion-nav-title>
+      Windows
+    </ion-nav-title>
+</ion-nav-bar>
+  <ion-content padding="'true'" class="has-header" scroll="false">
         <form name="windowForm" class="list">
-=======
-<ion-view title="Add Windows">
-    <ion-content padding="'true'" class="has-header">
-        <form name="windowform" class="list">
->>>>>>> b59c8485569210c8995bea5434f17034c1bc215c
-            <div>
-                <p>You can size the door by providing the inputs for width and length and select                  where to position them. Add to position more windows or minus to remove window.</p>
+        <div>
+            <p>You can size the door by providing the inputs for width and length and select                  where to position them. Add to position more windows or minus to remove window.</p>
             </div>
+            
             <div class="row">
-                <div class="col col-30">
+                <div class="col">
                     <label class="item item-input">
                         <span class="input-label">Width</span>
-<<<<<<< HEAD
-                        <input type="tel" placeholder="feet" ng-model="window.width">
-                    </label>
-                </div>
-            </div>
-            <button class="button button-full button-dark" ng-disabled="!windowForm.$valid" ng-click="addWindow()">
-                    Add Window
-            </button> 
-=======
-                        <input
-                        name="width"
-                        type="tel"
-                        placeholder="feet"
-                        ng-model="window.width"
-                        required
-                        ng-pattern="/^\d*\.?\d*$/" >
-                    </label>
-                </div>
-                <div class="col col-30">
-                    <label class="item item-input">
-                        <span class="input-label">Length</span>
-                        <input type="tel"
-                        name="length"
-                        placeholder="feet"
-                        ng-model="window.length"
-                        required
-                        ng-pattern="/^\d*\.?\d*$/">
+                        <input name="width"
+                               type="tel" 
+                               placeholder="feet" 
+                               ng-model="window.width"
+                               required
+                               autocomplete ="off"
+                               ng-pattern="/^\d*\.?\d*$/">
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col text-center form-error assertive"
-                ng-show="windowform.width.$error.pattern || windowform.length.$error.pattern">
+                ng-show="windowForm.width.$error.pattern">
                   Invalid Input
                 </div>
-                <div class="col text-center form-error assertive" ng-show="windowform.width.$error.required && windowform.width.$error.pattern || windowform.length.$error.required && windowform.length.$error.pattern">
+                <div class="col text-center form-error assertive" 
+                ng-show="windowForm.width.$error.required">
                   Width is required
                 </div>
-            </div>
-            <div class="row row-center">
-                <div class="col col-offset-25">
-                    <p>Room shows up below.</p> 
-                </div>
-            </div> 
-            <div class="row row-bottom">
-                <div class="col">
-                    <img src="http://placehold.it/280x150">
-                </div> 
-            </div> 
-            <div class="row row-bottom">
-                <div class="col-10 col-offset-75">
-                    <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-                </div>
-                <div class="col-10">
-                    <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
-                </div>
-            </div>           
->>>>>>> b59c8485569210c8995bea5434f17034c1bc215c
+            </div>         
         </form>
+<button class="button button-full button-dark" ng-disabled="!windowForm.$valid" ng-click="addWindow()">
+                    Add Window
+            </button> 
         <div class="room-container">
-      <div  id="roomholderwindow" style="border:5px solid black;width:90vw;height:90vw;margin: 0 auto; display:block; position:relative;">
-       
+      <div class="rhold"  id="roomholderwindow" style="border:5px solid black;
+                                   width:{{cwidth}};
+                                   height:{{cheight}};
+                                   margin: 0 auto;
+                                   position:relative">
+            
       </div>
     </div>
     </ion-content>
@@ -90,7 +54,7 @@
                 BACK
             </a>
             <a class="tab-item">
-                <i class="icon ion-arrow-right-a" ng-click="addFurniture(user)"></i>
+                <i class="icon ion-arrow-right-a" ng-click="addFurniture()"></i>
                 NEXT
             </a>
         </div>

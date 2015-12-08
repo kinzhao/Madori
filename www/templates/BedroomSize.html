@@ -1,7 +1,7 @@
 <ion-view>
 <ion-nav-bar class="bar-dark">
 <ion-nav-title>
-      Bedroom Size
+      Room
     </ion-nav-title>
 </ion-nav-bar>
   <ion-content padding="'true'" class="has-header">
@@ -42,8 +42,13 @@
         ng-show="roomform.width.$error.pattern || roomform.length.$error.pattern">
           Invalid Input
         </div>
-        <div class="col text-center form-error assertive" ng-show="roomform.width.$error.required && roomform.width.$error.pattern || roomform.length.$error.required && roomform.length.$error.pattern">
+        <div class="col text-center form-error assertive" 
+             ng-show="roomform.width.$error.required">
           Width is required
+        </div>
+        <div class="col text-center form-error assertive" 
+             ng-show="roomform.length.$error.required && !roomform.width.$error.required">
+          Length is required
         </div>
       </div>  
     </form>

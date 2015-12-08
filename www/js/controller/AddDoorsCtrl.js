@@ -1,11 +1,12 @@
 angular.module('ionicApp')
 
 .controller('AddDoorsCtrl', function($scope, $state, $ionicHistory ,$rootScope ) {
+    
   $scope.goBack = function() {
     $ionicHistory.goBack();
   };
     
-  $scope.addWindows = function(user) {
+  $scope.addWindows = function() {
       $rootScope.box = [];
       var elements = document.querySelectorAll('.dragg');
       for ( var i=0, len = elements.length; i < len; i++ ) {
@@ -17,7 +18,7 @@ angular.module('ionicApp')
             $rootScope.box.push({type:"door", x:xl, y:yt, width:w, height:h});
       }
        // $rootScope.box.type = "door";
-        console.log($rootScope.box);
+        console.log("Doors",$rootScope.box);
       $state.go('AddWindows');
   };
 
@@ -38,25 +39,25 @@ angular.module('ionicApp')
         //door.appendChild(name);
       
         door.classList.add('dragg');
-        door.style.width = (($rootScope.door.width*10)*2)+"px";
+        door.style.width = ($rootScope.door.width*10*$rootScope.scale)+"px";
         if(doortype == "Single")
         {
-            door.style.height = (($rootScope.door.width*10)*2)+"px";
+            door.style.height = ($rootScope.door.width*10*$rootScope.scale)+"px";
             console.log("in single");
         }
         else if(doortype == "Double")
         {
-            door.style.height = ((($rootScope.door.width/2)*10)*2)+"px";
+            door.style.height = (($rootScope.door.width/2)*10*$rootScope.scale)+"px";
             console.log("in double");
         }
         else
         {
-            door.style.height = "10px";
+            door.style.height = $rootScope.gridh/2+"px";
             console.log("in sliding");
         }  
         door.style.backgroundColor = "blue";
+        door.style.position = "absolute";
         var room = document.querySelector("#roomholder");
-        room.style.position = "relative";
         room.appendChild(door);
       
             // get all draggie elements
@@ -67,18 +68,11 @@ angular.module('ionicApp')
         for ( var i=0, len = draggableElems.length; i < len; i++ ) {
         var draggableElem = draggableElems[i];
         var draggie = new Draggabilly( draggableElem, {
-            containment: true
+            containment: true,
+            grid: [$rootScope.gridw/2,$rootScope.gridh/2]
         });
         draggies.push( draggie );
         }
     }
-
-  // this is used later in the resizing and gesture demos
-  //window.dragMoveListener = dragMoveListener;
-
-    //$scope.roomwidth = $rootScope.cwidth;
-    //$scope.roomheight = $rootScope.cheight;
-    //$scope.roomwidth = 400;
-    //$scope.roomheight = 400;
     console.log("W and H",$scope.roomwidth,$scope.roomheight);
   })
