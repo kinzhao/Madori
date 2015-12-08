@@ -10,21 +10,32 @@
         <p>You can size the door by providing the inputs for width and length and select where to position them.</p>
       </div>
       <div class="row">
-        <div class="col-35">
-          <label class="item item-input">
+        <div class="col col-45">
+          <label class="item item-input" id="margin-item">
             <span class="input-label">Width</span>
             <input
-            type="tel"
-            ng-model="door.width"
-            placeholder="in feet"
-            ng-change="addD()"
+            name="width" 
+            type="tel" 
+            ng-model="door.width" 
+            placeholder="feet" 
+            ng-change="addDoor()"
             required
-            >
+            ng-pattern="/^\d*\.?\d*$/">
           </label>
         </div>
 
-        <div class="col-50 col-offset-10">
-          <label class="item item-input item-select">
+        <div class="col col-55">
+            <select 
+            name="select"
+            class="ion-input-select" 
+            id="margin-item">
+              <option selected>Single</option>
+              <option>Double</option>
+              <option>Sliding</option>
+            </select>
+        </div>  
+<!--         <div class="col-55">
+          <label class="item item-input item-select" id="margin-item">
             <span class="input-label">Type</span>
             <select
             id="doortypelist"
@@ -36,7 +47,17 @@
               <option>Sliding</option>
             </select>
           </label>
+        </div> -->
+      </div>
+      <div class="row">
+        <div class="col form-error assertive text-center"
+        ng-show="doorform.width.$error.pattern">
+          Invalid Input
         </div>
+        <div class="col form-error assertive text-center" ng-show="doorform.width.$error.required && doorform.width.$error.pattern">
+          Width is required
+        </div>
+      </div>  
       </div>
       <button class="button button-full button-dark" ng-disabled="!doorForm.$valid" ng-click="addDoor()">
       Add Door

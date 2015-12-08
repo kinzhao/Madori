@@ -53,9 +53,9 @@ body {
 //#item-margin-control-for-length-item{margin-left:1%;}	
 
 }
-/* .ion-input-select,
+ .ion-input-select,
 select {
-  -webkit-appearance:none;
+ // -webkit-appearance:none;
   background-repeat: no-repeat;
   background-color: rgba(0,0,0,0);  
   border:thin solid #dddddd;
@@ -67,14 +67,15 @@ select {
   overflow:hidden;
   box-sizing:border-box;
 
-}
+} 
 .ion-input-select {
-  width:200px;
+  width: 100%;
   font-size:1rem;
   background-image: url('img/select.png');
-  text-indent:20px;
-  padding:.5rem 0;
+  text-indent:20%;
+  padding:.8rem 0;
   background-position:-2% 0%; 
+  height: 100%;
 }
 
 option {
@@ -87,7 +88,7 @@ select::-ms-expand {
 
 :focus {
   outline:none;
-} */
+} 
 .col-45{
 	width: 45%;
 }
@@ -99,4 +100,11 @@ select::-ms-expand {
 	#margin-item{
 		margin: 2%;
 	}
+}
+#width-control{
+  width: 92%;
+  margin: 4%;
+}
+.text-center{
+  text-align: center;
 }

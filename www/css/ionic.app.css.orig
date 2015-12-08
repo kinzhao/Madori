@@ -9161,9 +9161,15 @@ select::-ms-expand {
 #Add-Doors-wrapper #margin-item {
   margin: 2%; }
 
+<<<<<<< HEAD
+.hider{
+    display: none;
+}
+=======
 #width-control {
   width: 92%;
   margin: 4%; }
 
 .text-center {
   text-align: center; }
+>>>>>>> b59c8485569210c8995bea5434f17034c1bc215c
