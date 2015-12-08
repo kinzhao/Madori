@@ -1,42 +1,31 @@
-<ion-view title="Add Windows">
-    <ion-content padding="'true'" class="has-header">
-        <form class="list">
+<ion-view>
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-title>
+            Add Windows
+        </ion-nav-title>
+    </ion-nav-bar>
+    <ion-content padding="'true'" scroll="false" class="has-header">
+        <form name="windowForm" class="list">
             <div>
-                <p>You can size the door by providing the inputs for width and length and select where to position them. Add to position more windows or minus to remove window.</p>
+                <p>You can size the door by providing the inputs for width and length and select                  where to position them. Add to position more windows or minus to remove window.</p>
             </div>
             <div class="row">
                 <div class="col col-30">
                     <label class="item item-input">
                         <span class="input-label">Width</span>
-                        <input type="tel" placeholder="feet">
-                    </label>
-                </div>
-                <div class="col col-30">
-                    <label class="item item-input">
-                        <span class="input-label">Length</span>
-                        <input type="tel" placeholder="feet">
+                        <input type="tel" placeholder="feet" ng-model="window.width">
                     </label>
                 </div>
             </div>
-            <div class="row row-center">
-                <div class="col col-offset-25">
-                    <p>Room shows up below.</p> 
-                </div>
-            </div> 
-            <div class="row row-bottom">
-                <div class="col">
-                    <img src="http://placehold.it/280x150">
-                </div> 
-            </div> 
-            <div class="row row-bottom">
-                <div class="col-10 col-offset-75">
-                    <button class="button button-stable button-icon button-large icon-right ion-minus-circled"></button>
-                </div>
-                <div class="col-10">
-                    <button class="button button-stable button-icon button-large icon-right ion-android-add-circle"></button>
-                </div>
-            </div>           
+            <button class="button button-full button-dark" ng-disabled="!windowForm.$valid" ng-click="addWindow()">
+                    Add Window
+            </button> 
         </form>
+        <div class="room-container">
+      <div  id="roomholderwindow" style="border:5px solid black;width:90vw;height:90vw;margin: 0 auto; display:block; position:relative;">
+       
+      </div>
+    </div>
     </ion-content>
         <div class="tabs tabs-dark tabs-icon-top">
             <a class="tab-item">

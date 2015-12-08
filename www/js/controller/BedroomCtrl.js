@@ -47,7 +47,6 @@ angular.module('ionicApp')
     };
 
     $scope.addDoors = function() {
-    console.log('addDoors ',$rootScope.room);
     $rootScope.cwidth = canvasw;
     $rootScope.cheight = canvash;
     $state.go('AddDoors');

@@ -9099,7 +9099,8 @@ a.button {
   color: white;
   padding: 4%;
   -webkit-transform: translate(0px, 0px);
-  transform: translate(0px, 0px); }
+  transform: translate(0px, 0px); 
+  height:10px;}
 
 /* html, body{
 	margin: 0;
@@ -9167,3 +9168,7 @@ select::-ms-expand {
 
 #Add-Doors-wrapper #margin-item {
   margin: 2%; }
+
+.hider{
+    display: none;
+}

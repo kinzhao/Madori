@@ -71,9 +71,13 @@ transform: translate(0px,0px);
 margin: 10%;
 background-color : blue;
 color: white;
-padding: 4%;
+//padding: 4%;
 overflow: hidden;
 -webkit-transform: translate(0px,0px);
 transform: translate(0px,0px);
+}
+
+.hider{
+    display: none;
 }
 
